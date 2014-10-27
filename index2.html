@@ -13,6 +13,21 @@
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script>
+    
+    function makeAPICall() {
+      var JSONdata = '{"message": "my commit message", "content": "'hello World!'"}';
+      JSONdata = JSON.stringify(data);
+      $.ajax({
+          url: "https://api.github.com/repos/jcambre/learning/contents/newitem.html",
+          dataType: "json",
+          data: JSONdata,
+          success: function (returndata)
+          {
+              $("#result").html(returndata[0]["object"]["sha"]);
+              alert('Load was performed.');
+          }  
+      });
+    }
 // This example displays a marker at the center of Australia.
 // When the user clicks the marker, an info window opens.
 
@@ -61,7 +76,7 @@ function initialize() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
+makeAPICall();
     </script>
   </head>
   <body>
