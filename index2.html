@@ -15,8 +15,7 @@
     <script>
     
     function makeAPICall() {
-      var JSONdata = '{"message": "my commit message", "content": "'hello World!'"}';
-      JSONdata = JSON.stringify(data);
+      var JSONdata = JSON.stringify({"message": "my commit message", "content": "'hello World!'"});
       $.ajax({
           url: "https://api.github.com/repos/jcambre/learning/contents/newitem.html",
           dataType: "json",
